@@ -2,6 +2,9 @@
 
 本文从一个小Demo开始，通过不断增加功能来说明webpack的基本配置，只针对新手，也欢迎指正错误。
 
+Node.js version： -v7.7.0
+webpack 最好全局装一下
+
 ### Base
 我们先从简单的Demo开始，首先我创建了一个项目目录`webpack`，在该目录下运行命令：
 ```bash
@@ -360,7 +363,7 @@ array.forEach((file) => {
 
 module.exports = config
 ```
-### 3. 某些文件单独打包
+####  3. 某些文件单独打包
 以jquery为例：
 ```bash
 npm i file-loader --save-dev
@@ -467,5 +470,8 @@ plugins: [
 
 ### 总结
 
-感觉把以上说的走一遍，webpack基本的配置就可以熟悉了，会引入loader，配置loader选项，会设置alias，会用plugins差不多。至于现在一些比较大的项目中分多个配置文件，是根据不同的场景拆分开的，基本的一个`webpack.base.config.js`,主要包含`loader`，`resolve`等全局通用的部分，剩下的根据开发或者生产环境分成`webpack.dev.config.js`，`webpack.prod.config.js`，除了都会合并base的内容，其他可能跟去环境不一样像`output`， `plugins`也都有所不同。
-loader和plugins的配置可以看官方文档，我没用详细说。
+感觉把以上说的走一遍，webpack基本的配置就可以熟悉了，会引入loader，配置loader选项，会设置alias，会用plugins差不多。
+
+至于现在一些比较大的项目中分多个配置文件，是根据不同的场景拆分开的，基本的一个`webpack.base.config.js`,主要包含`loader`，`resolve`等全局通用的部分，剩下的根据开发或者生产环境分成`webpack.dev.config.js`，`webpack.prod.config.js`，除了都会合并base的内容，其他可能跟去环境不一样像`output`， `plugins`也都有所不同。
+
+另外，我说的不是很详细，有些东西还要自己去踩坑，比如loader和plugins的配置可以看官方文档，我没有详细说。
